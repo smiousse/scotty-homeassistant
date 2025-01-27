@@ -1,0 +1,60 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Wheater</h1>
+      - type: custom:clock-weather-card
+        entity: weather.forecast_chalet
+        card_mod:
+          class: middle-left
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Security</h1>
+      - type: alarm-panel
+        entity: alarm_control_panel.blink_charage
+        states:
+          - arm_away
+        card_mod:
+          class: middle-left
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Engine room</h1>
+      - type: entities
+        entities:
+          - entity: switch.neviweb130_switch_2_chauffe_eau
+            name: Water heater
+            icon: mdi:water-boiler
+          - entity: switch.neviweb130_switch_2_chauffe_eau
+            type: attribute
+            name: Water temperature
+            attribute: water_temperature
+            icon: mdi:temperature-celsius
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_2_th1123wf
+        layout:
+          step: row
+        header:
+          name: Salon
+          icon: mdi:sofa
+        control: true
+        card_mod:
+          class: middle-left
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"

@@ -1,0 +1,124 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>F-150</h1>
+      - type: picture
+        image: /api/image/serve/acd30a11e6e8291614a6ebfc68159092/512x512
+        card_mod:
+          class: middle-left
+      - type: entities
+        card_mod:
+          class: middle-left
+        entities:
+          - entity: switch.fordpass_ignition_switch
+      - type: custom:html-card
+        card_mod:
+          class: middle-contained
+        content: '<h1>Energy</h1>'
+      - type: entities
+        card_mod:
+          class: middle-left
+        entities:
+          - entity: sensor.fordpass_elveh
+            name: Autonomie
+          - entity: sensor.fordpass_fuel
+            name: Battery
+          - entity: sensor.fordpass_battery
+            name: Baterry 12 volt          
+          - entity: sensor.fordpass_elvehcharging
+            name: Chargement
+      - type: custom:html-card
+        card_mod:
+          class: middle-contained
+        content: '<h1>Health</h1>'
+      - type: entities
+        card_mod:
+          class: middle-left
+        entities:           
+          - entity: lock.fordpass_doorlock
+          - entity: sensor.fordpass_doorstatus
+            name: États des portes
+          - entity: sensor.fordpass_windowposition
+            name: Fenêtre
+          - entity: sensor.fordpass_indicators
+            name: Indicateurs
+          - entity: sensor.fordpass_odometer
+            name: Odomètre
+          - entity: sensor.fordpass_ignitionstatus
+            name: En marche
+          - entity: sensor.fordpass_remotestartstatus
+            name: Démarage à distance
+          - entity: sensor.fordpass_alarm
+            name: Alarme
+          - entity: sensor.fordpass_tirepressure
+            name: Pneus
+          - entity: device_tracker.fordpass_tracker
+            name: Emplacement
+          - entity: sensor.fordpass_outsidetemp
+            name: Température extérieur
+          - entity: sensor.fordpass_lastrefresh
+            name: Dernière mise à jour
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+
+
+
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>F-150</h1>
+      - type: picture
+        image: /api/image/serve/acd30a11e6e8291614a6ebfc68159092/512x512
+        card_mod:
+          class: middle-left
+      - type: entities
+        card_mod:
+          class: middle-left
+        entities:
+          - entity: switch.fordpass_ignition_switch
+          - entity: sensor.fordpass_fuel
+            name: Battery
+          - entity: sensor.fordpass_battery
+            name: Baterry 12 volt
+          - entity: lock.fordpass_doorlock
+          - entity: sensor.fordpass_doorstatus
+            name: États des portes
+          - entity: sensor.fordpass_windowposition
+            name: Fenêtre
+          - entity: sensor.fordpass_elveh
+            name: Autonomie
+          - entity: sensor.fordpass_elvehcharging
+            name: Chargement
+          - entity: sensor.fordpass_ignitionstatus
+            name: En marche
+          - entity: sensor.fordpass_indicators
+            name: Indicateurs
+          - entity: sensor.fordpass_odometer
+            name: Odomètre
+          - entity: sensor.fordpass_outsidetemp
+            name: Température extérieur
+          - entity: sensor.fordpass_remotestartstatus
+            name: Démarage à distance
+          - entity: sensor.fordpass_alarm
+            name: Alarme
+          - entity: sensor.fordpass_tirepressure
+            name: Pneus
+          - entity: device_tracker.fordpass_tracker
+            name: Emplacement
+          - entity: sensor.fordpass_lastrefresh
+            name: Dernière mise à jour
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+

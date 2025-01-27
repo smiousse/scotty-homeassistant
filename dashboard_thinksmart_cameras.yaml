@@ -1,0 +1,94 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Security officier</h1>
+      - type: alarm-panel
+        entity: alarm_control_panel.blink_home
+        states:
+          - arm_away
+        card_mod:
+          class: middle-left
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Relax deck</h1>
+      - type: picture-entity
+        show_state: true
+        show_name: true
+        camera_view: auto        
+        entity: camera.salon
+        image: https://demo.home-assistant.io/stub_config/bedroom.png
+        name: Salon
+        card_mod:
+          class: middle-left
+      - type: entities
+        entities:
+        - entity: switch.salon_camera_motion_detection
+          name: Détection de mouvement
+        card_mod:
+          class: middle-left      
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Outside</h1>
+      - type: picture-entity
+        show_state: true
+        show_name: true
+        camera_view: auto        
+        entity: camera.front_door_bell
+        image: https://demo.home-assistant.io/stub_config/bedroom.png
+        name: Doorbell
+        card_mod:
+          class: middle-left
+      - type: entities
+        entities:
+        - entity: switch.front_door_bell_camera_motion_detection
+          name: Détection de mouvement
+        card_mod:
+          class: middle-left 
+      - type: picture-entity
+        show_state: true
+        show_name: true
+        camera_view: auto        
+        entity: camera.front_door
+        image: https://demo.home-assistant.io/stub_config/bedroom.png
+        name: Front door
+        card_mod:
+          class: middle-left
+      - type: entities
+        entities:
+        - entity: switch.front_door_camera_motion_detection
+          name: Détection de mouvement
+        card_mod:
+          class: middle-left 
+      - type: picture-entity
+        show_state: true
+        show_name: true
+        camera_view: auto        
+        entity: camera.garage_door
+        image: https://demo.home-assistant.io/stub_config/bedroom.png
+        name: Garage
+        card_mod:
+          class: middle-left
+      - type: entities
+        entities:
+        - entity: switch.garage_door_camera_motion_detection
+          name: Détection de mouvement
+        card_mod:
+          class: middle-left      
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"

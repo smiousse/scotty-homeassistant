@@ -1,0 +1,130 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Upper Decks</h1>
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_4
+        layout:
+          step: row
+        header:
+          name: Maîtres
+          icon: mdi:bed-king
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_2
+        layout:
+          step: row
+        header:
+          name: Salon
+          icon: mdi:sofa
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_11
+        layout:
+          step: row
+        header:
+          name: Bureau
+          icon: phu:rooms-office
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat
+        layout:
+          step: row
+        header:
+          name: Cuisine
+          icon: mdi:countertop
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_10
+        layout:
+          step: row
+        header:
+          name: Zak
+          icon: mdi:bed
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_3
+        layout:
+          step: row
+        header:
+          name: Salle de bain
+          icon: mdi:bathtub
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Lower Decks</h1>
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_9
+        layout:
+          step: row
+        header:
+          name: Alexia
+          icon: mdi:bed
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_6
+        layout:
+          step: row
+        header:
+          name: Emy
+          icon: mdi:bed
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_8
+        layout:
+          step: row
+        header:
+          name: Elliot
+          icon: mdi:bed
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_5
+        layout:
+          step: row
+        header:
+          name: Hubert
+          icon: mdi:bed
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:simple-thermostat
+        entity: climate.neviweb130_climate_thermostat_7
+        layout:
+          step: row
+        header:
+          name: Salle de jeux
+          icon: mdi:toy-brick
+        control: false
+        card_mod:
+          class: middle-left
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"

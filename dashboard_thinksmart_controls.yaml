@@ -1,0 +1,29 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Engine room</h1>
+      - type: entities
+        entities:          
+          - entity: switch.neviweb130_switch_fan
+            name: Fan
+            icon: mdi:fan
+          - entity: switch.deshumidificateur_socket_1
+            name: Dehumidifier
+            icon: mdi:air-humidifier
+          - entity: switch.fan_chambre_socket_1
+            name: Master bedroom
+            icon: mdi:fan
+          - entity: switch.fan_salle_de_bain_bas_socket_1
+            name: Lower deck bathroom
+            icon: mdi:fan
+        card_mod:
+          class: middle-left   
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+

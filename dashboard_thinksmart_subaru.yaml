@@ -1,0 +1,75 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Subaru</h1>
+      - type: picture
+        image: /api/image/serve/a8aad1c4b7acadbaad4036de8d643805/512x512
+        card_mod:
+          class: middle-left
+      - type: custom:html-card
+        card_mod:
+          class: middle-contained
+        content: '<h1>Consomation</h1>'
+      - type: entities
+        card_mod:
+          class: middle-left
+        entities:
+          - entity: sensor.4s4wmafd8p3455472_average_fuel_consumption
+          - entity: sensor.4s4wmafd8p3455472_niveau_du_reservoir
+          - entity: sensor.4s4wmafd8p3455472_odometre
+          - entity: sensor.4s4wmafd8p3455472_range
+      - type: custom:html-card
+        card_mod:
+          class: middle-contained
+        content: '<h1>Health</h1>'
+      - type: entities
+        card_mod:
+          class: middle-left
+        entities:
+          - entity: lock.4s4wmafd8p3455472_door_locks
+          - entity: sensor.4s4wmafd8p3455472_pression_de_pneu_arriere_droite
+          - entity: sensor.4s4wmafd8p3455472_pression_de_pneu_arriere_gauche
+          - entity: sensor.4s4wmafd8p3455472_pression_de_pneu_avant_droite
+          - entity: sensor.4s4wmafd8p3455472_pression_de_pneu_avant_gauche
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+
+
+
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Subaru</h1>
+      - type: picture
+        image: /api/image/serve/a8aad1c4b7acadbaad4036de8d643805/512x512
+        card_mod:
+          class: middle-left
+      - type: entities
+        card_mod:
+          class: middle-left
+        entities:
+          - entity: lock.4s4wmafd8p3455472_door_locks
+          - entity: sensor.4s4wmafd8p3455472_average_fuel_consumption
+          - entity: sensor.4s4wmafd8p3455472_niveau_du_reservoir
+          - entity: sensor.4s4wmafd8p3455472_odometre
+          - entity: sensor.4s4wmafd8p3455472_pression_de_pneu_arriere_droite
+          - entity: sensor.4s4wmafd8p3455472_pression_de_pneu_arriere_gauche
+          - entity: sensor.4s4wmafd8p3455472_pression_de_pneu_avant_droite
+          - entity: sensor.4s4wmafd8p3455472_pression_de_pneu_avant_gauche
+          - entity: sensor.4s4wmafd8p3455472_range
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+
+
