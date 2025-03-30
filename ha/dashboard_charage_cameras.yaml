@@ -1,0 +1,42 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Caméras</h1>
+      - type: picture-entity
+        show_state: true
+        show_name: true
+        camera_view: auto        
+        entity: camera.charage_garage
+        image: https://demo.home-assistant.io/stub_config/bedroom.png
+        name: Salon
+        card_mod:
+          class: middle-left
+      - type: entities
+        entities:
+        - entity: switch.salon_camera_motion_detection
+          name: Détection de mouvement
+        card_mod:
+          class: middle-left   
+      - type: picture-entity
+        show_state: true
+        show_name: true
+        camera_view: auto        
+        entity: camera.charage_garage
+        image: https://demo.home-assistant.io/stub_config/bedroom.png
+        name: Salon
+        card_mod:
+          class: middle-left
+      - type: entities
+        entities:
+        - entity: switch.salon_camera_motion_detection
+          name: Détection de mouvement
+        card_mod:
+          class: middle-left     
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"    

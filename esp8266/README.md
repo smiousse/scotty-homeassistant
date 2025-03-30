@@ -1,0 +1,1 @@
+esphome run charagemaisontemphumsensor.yaml

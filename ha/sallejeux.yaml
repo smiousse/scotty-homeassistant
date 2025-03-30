@@ -1,0 +1,99 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-right
+        content: <h1>Salle de jeux</h1>
+      - type: horizontal-stack
+        cards:
+          - show_name: false
+            show_icon: true
+            type: button
+            entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_pressure
+            name: Pression
+            tap_action:
+              action: toggle
+            show_state: true
+            card_mod:
+              class: button-bullet-left
+          - show_name: false
+            show_icon: true
+            type: button
+            entity: sensor.sallejeuxtemphumsensor_sous_sol_water_sensor_volt
+            name: Niveau d'eau Voltage
+            tap_action:
+              action: toggle
+            show_state: true
+            card_mod:
+              class: button-bullet-right
+      - type: custom:bar-card
+        card_mod:
+          class: middle-right
+        entities:
+          - entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_humidity
+            name: Humidité
+            icon: mdi:water-percent
+        width: 70%
+        positions:
+          indicator: inside
+          name: outside
+        severity:
+          - color: Green
+            from: 0
+            to: 75
+          - color: Orange
+            from: 76
+            to: 90
+          - color: Red
+            from: 91
+            to: 100
+      - type: custom:bar-card
+        card_mod:
+          class: middle-right
+        entities:
+          - entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_temperature
+            name: Température
+            icon: mdi:thermometer
+        width: 70%
+        min: 7
+        max: 40
+        positions:
+          indicator: inside
+          name: outside
+        severity:
+          - color: Blue
+            from: 7
+            to: 14
+          - color: Green
+            from: 15
+            to: 23
+          - color: Red
+            from: 24
+            to: 40
+      - type: custom:bar-card
+        card_mod:
+          class: middle-right
+        entities:
+          - entity: sensor.sallejeuxtemphumsensor_sous_sol_niveau_d_eau
+            name: Niveau Eau
+            icon: mdi:waterfall
+        width: 70%
+        positions:
+          indicator: inside
+          name: outside
+        severity:
+          - color: Green
+            from: 0
+            to: 5
+          - color: Orange
+            from: 6
+            to: 30
+          - color: Red
+            from: 31
+            to: 100
+      - type: custom:html-card
+        card_mod:
+          class: footer-right
+        content: "&nbsp;"

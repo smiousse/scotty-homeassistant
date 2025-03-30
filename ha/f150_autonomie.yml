@@ -1,0 +1,102 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>F-150</h1>
+      - type: picture
+        image: /api/image/serve/acd30a11e6e8291614a6ebfc68159092/512x512
+        card_mod:
+          class: middle-left      
+      - type: custom:html-card
+        card_mod:
+          class: middle-contained
+        content: <h1>Autonomie</h1>      
+      - type: custom:bar-card
+        card_mod:
+          class: middle-left
+        entities:
+          - entity: sensor.fordpass_fuel
+            name: Battery
+            icon: mdi:fuel-cell
+        width: 70%
+        positions:
+          indicator: inside
+          name: outside
+        severity:
+          - color: Red
+            from: 0
+            to: 20
+          - color: Orange
+            from: 21
+            to: 90
+          - color: Green
+            from: 91
+            to: 100
+      - type: custom:bar-card
+        card_mod:
+          class: middle-left
+        entities:
+          - entity: sensor.fordpass_battery
+            name: Baterry 12 volt
+            icon: mdi:car-battery
+        width: 70%
+        positions:
+          indicator: inside
+          name: outside
+        severity:
+          - color: Red
+            from: 0
+            to: 20
+          - color: Orange
+            from: 21
+            to: 90
+          - color: Green
+            from: 91
+            to: 100
+      - type: horizontal-stack
+        cards:
+          - show_name: false
+            show_icon: true
+            type: button
+            entity: sensor.fordpass_elveh
+            icon: mdi:gauge
+            tap_action:
+              action: toggle
+            show_state: true
+            card_mod:
+              class: button-bullet-left
+          - show_name: false
+            show_icon: true
+            type: button
+            entity: sensor.fordpass_elvehcharging
+            tap_action:
+              action: toggle
+            show_state: true
+            card_mod:
+              class: button-bullet-right
+      - type: horizontal-stack
+        cards:
+          - type: button
+            entity: switch.fordpass_ignition_switch
+            name: Démarrer
+            card_mod:
+              class: button-bullet-left
+          - type: button
+            show_name: true
+            show_icon: true        
+            entity: script.fordpass_refresh_information
+            name: Rafraîchir
+            tap_action:
+              action: perform-action
+              perform_action: fordpass.poll_api
+              target: {}
+            icon: mdi:refresh
+            card_mod:
+              class: button-bullet-right
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"

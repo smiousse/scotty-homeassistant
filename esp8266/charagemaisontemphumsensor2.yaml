@@ -1,0 +1,39 @@
+esphome:
+  name: charagemaisontemphumsensor2
+  friendly_name: CharageMaisonTempHumSensor2
+
+esp8266:
+  board: d1
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "WPwyotHVbgfPod1heS7zQ9Kn706rp6LmB3yGAvLAAgo="
+
+ota:
+  - platform: esphome
+    password: "b98b7461f7899d2c73e72d2020028a50"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Charagemaisontemphumsensor"
+    password: "wmQzXUNcTEQa"
+
+captive_portal:
+
+sensor:
+  - platform: dht
+    pin: D5
+    temperature:
+      name: "Charage Maison2 Temperature"
+    humidity:
+      name: "Charage Maison2 Humidity"
+    update_interval: 60s
+    model: DHT11

@@ -1,0 +1,77 @@
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Salle de jeux</h1>
+      - type: custom:bubble-card
+        card_type: horizontal-buttons-stack
+        1_name: Humidité
+        1_entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_humidity
+        2_name: Température
+        2_entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_temperature
+        3_name: Pression
+        3_entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_pressure
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+
+type: grid
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-left
+        content: <h1>Salle de jeux</h1>
+      - type: vertical-stack
+        card_mod:
+          class: middle-left
+        cards:
+          - type: custom:bubble-card          
+            card_type: button
+            button_type: state
+            card_layout: large-2-rows
+            name: Salle de jeux
+            entity: basement
+            icon: mdi:toy-brick-plus
+            show_state: true
+            sub_button:
+              - entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_humidity
+                show_state: true
+                show_background: false
+              - entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_temperature
+                show_background: false
+                show_state: true
+              - entity: sensor.sallejeuxtemphumsensor_salle_de_jeux_pressure
+                show_state: true
+                show_background: false
+              - entity: sensor.sallejeuxtemphumsensor_sous_sol_niveau_d_eau
+                show_background: false
+                show_state: true
+          - type: custom:bubble-card          
+            card_type: button
+            button_type: state
+            card_layout: large-2-rows
+            name: Garage
+            entity: garage
+            icon: mdi:toy-brick-plus
+            show_state: true
+            sub_button:
+              - entity: sensor.garage_humidity
+                show_state: true
+                show_background: false
+              - entity: sensor.garage_temperature
+                show_background: false
+                show_state: true
+              - entity: sensor.garage_pressure
+                show_state: true
+                show_background: false
+      - type: custom:html-card
+        card_mod:
+          class: footer-left
+        content: "&nbsp;"
+

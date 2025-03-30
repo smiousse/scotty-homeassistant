@@ -1,0 +1,29 @@
+services:
+  vpn:
+    container_name: vpn
+    image: dperson/openvpn-client:latest
+    cap_add:
+      - net_admin
+    restart: unless-stopped
+    volumes:
+      - /dev/net/tun:/dev/net/tun
+      - ./vpn_config:/vpn # You'll need to provide this
+    security_opt:
+      - label:disable
+    ports:
+      - 1883:1883
+      - 9001:9001
+    networks:
+      - bridge_vpn
+    entrypoint: ["/sbin/tini", "--", "/usr/bin/openvpn.sh", "-d"]
+
+  mqtt:
+    image: eclipse-mosquitto
+    network_mode: service:vpn
+    volumes:
+      - ./mqtt_config:/mosquitto/config
+    restart: unless-stopped
+    depends_on:
+      - vpn
+networks:
+  bridge_vpn:

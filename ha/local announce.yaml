@@ -1,0 +1,41 @@
+# notice comments to tweak for your own setup this file is if you only use local and no Home Assistant Cloud
+alias: announce {words}
+description: ""
+triggers:
+  - trigger: conversation
+    command:
+      - announce {words}
+  - trigger: conversation
+    command:
+      - announcement {words}
+conditions: []
+actions:
+  - target:
+      entity_id: media_player.all_sonos_speakers # change to your media group
+    data:
+      announce: true
+      media_content_type: music
+      media_content_id: /media/announce.mp3 # setup your own audio file
+      extra:
+        volume: 75
+    action: media_player.play_media
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 3
+  - target:
+      entity_id: tts.piper
+    data:
+      media_player_entity_id: media_player.all_sonos_speakers # change to your media group
+      message: "{{ trigger.slots.words }}"
+      cache: false
+    action: tts.speak
+  - data:
+      title: From {{ device_name }}
+      message: "{{ trigger.slots.words }}"
+    action: notify.mobile_app_your_dad # change to your mobile device
+variables:
+  device_name: >-
+    {% set device = device_attr(trigger.device_id, 'name') %} {{ device if
+    device else trigger.device_id }}
+mode: single

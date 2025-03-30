@@ -1,0 +1,132 @@
+blueprint:
+  name: Phone Rings - Light Flashes - Android phones only
+  description: "Flash a light when phone rings in vibrate/silent mode."
+  domain: automation
+  input:
+    phone_audio_mode:
+      name: Phone Audio Mode Sensor
+      description: "The sensor that indicates the phone's audio mode."
+      selector:
+        entity:
+          domain: sensor
+    phone_ringer_mode:
+      name: Phone Ringer Mode Sensor
+      description: "The sensor that indicates the phone's ringer mode."
+      selector:
+        entity:
+          domain: sensor
+    switch_device:
+      name: Switch
+      description: "The switch entity (optional)."
+      selector:
+        entity:
+          domain: switch
+          multiple: false
+    light_device:
+      name: Light
+      description: "The light entity (optional)."
+      selector:
+        entity:
+          domain: light
+          multiple: false
+    alexa_device:
+      name: Alexa Device
+      description: "The Alexa media player device to send notifications to."
+      selector:
+        entity:
+          domain: media_player
+    device_tracker:
+      name: Device Tracker
+      description: "Device tracker for checking if the phone is at home."
+      selector:
+        entity:
+          domain: device_tracker
+
+trigger:
+  - platform: state
+    entity_id: !input phone_audio_mode
+    to: ringing
+
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: !input phone_ringer_mode
+        state: vibrate
+      - condition: state
+        entity_id: !input phone_ringer_mode
+        state: silent
+      - condition: state
+        entity_id: !input device_tracker
+        state: home
+
+action:
+  - service: media_player.play_media
+    target:
+      entity_id: !input alexa_device
+    data:
+      media_content_type: "tts"
+      media_content_id: >-
+        Someone is calling you, and your phone is in {{ states(input.phone_ringer_mode) | default('unknown') }} mode!
+
+  - repeat:
+      count: 10
+      sequence:
+        - choose:
+            - conditions:
+                - condition: template
+                  value_template: "{{ input.switch_device is defined and input.switch_device != '' }}"
+              sequence:
+                - service: switch.turn_on
+                  target:
+                    entity_id: !input switch_device
+        - choose:
+            - conditions:
+                - condition: template
+                  value_template: "{{ input.light_device is defined and input.light_device != '' }}"
+              sequence:
+                - service: light.turn_on
+                  target:
+                    entity_id: !input light_device
+        - delay:
+            seconds: 1
+        - choose:
+            - conditions:
+                - condition: template
+                  value_template: "{{ input.switch_device is defined and input.switch_device != '' }}"
+              sequence:
+                - service: switch.turn_off
+                  target:
+                    entity_id: !input switch_device
+        - choose:
+            - conditions:
+                - condition: template
+                  value_template: "{{ input.light_device is defined and input.light_device != '' }}"
+              sequence:
+                - service: light.turn_off
+                  target:
+                    entity_id: !input light_device
+
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: !input phone_audio_mode
+            state: in_call
+        sequence:
+          - choose:
+              - conditions:
+                  - condition: template
+                    value_template: "{{ input.switch_device is defined and input.switch_device != '' }}"
+                sequence:
+                  - service: switch.turn_off
+                    target:
+                      entity_id: !input switch_device
+          - choose:
+              - conditions:
+                  - condition: template
+                    value_template: "{{ input.light_device is defined and input.light_device != '' }}"
+                sequence:
+                  - service: light.turn_off
+                    target:
+                      entity_id: !input light_device
+mode: single
